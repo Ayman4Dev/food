@@ -1,0 +1,27 @@
+<svg width="700" height="220" viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="foodGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8A00"/>
+      <stop offset="100%" stop-color="#FF3D00"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="white"/>
+
+  <text x="50%" y="55%"
+        text-anchor="middle"
+        font-family="Fredoka, Baloo, Poppins, Arial, sans-serif"
+        font-size="95"
+        font-weight="700"
+        letter-spacing="1"
+        fill="url(#foodGrad)"
+        filter="url(#softShadow)"
+        stroke="#E63600"
+        stroke-width="2">
+        Food Rush
+  </text>
+</svg>
