@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food/core/constants/app_colors.dart';
-import 'package:food/features/auth/views/profile.dart';
 import 'package:food/features/cart/views/cart_view.dart';
 import 'package:food/features/home/views/home_view.dart';
 import 'package:food/features/orderHistory/views/order_history.dart';
+import 'package:food/features/profile/views/profile_view.dart';
 
 class Root extends StatefulWidget {
   Root({super.key});
@@ -19,7 +19,7 @@ class _RootState extends State<Root> {
 
   @override
   void initState() {
-    screens = [HomeView(), CartView(), OrderHistory(), Profile()];
+    screens = [HomeView(), CartView(), OrderHistory(), ProfileView()];
     controller = PageController(initialPage: currentscreen);
     super.initState();
   }
