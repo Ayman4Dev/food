@@ -3,7 +3,7 @@ import 'package:food/shared/castumtext.dart';
 import 'package:gap/gap.dart';
 
 class CartItem extends StatefulWidget {
-  const CartItem({
+  CartItem({
     super.key,
     required this.text,
     required this.description,
@@ -25,8 +25,34 @@ class CartItem extends StatefulWidget {
 }
 
 class _CartItemState extends State<CartItem> {
+  int count = 1;
+
+  void add() {
+    setState(() {
+      count++;
+    });
+  }
+
+  void minus() {
+    setState(() {
+      if (count > 1) {
+        count--;
+      }
+    });
+  }
+
+  void remove() {
+    setState(() {
+      count = 0;
+    });
+
+    widget.onRemove?.call();
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (count == 0) return const SizedBox();
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Card(
@@ -36,7 +62,6 @@ class _CartItemState extends State<CartItem> {
             Column(
               children: [
                 Image.asset(widget.image, width: 150, height: 100),
-
                 castumText(
                   text: widget.text,
                   fontsize: 15,
@@ -45,7 +70,6 @@ class _CartItemState extends State<CartItem> {
                 Text(widget.description),
               ],
             ),
-
             Column(
               children: [
                 Padding(
@@ -60,13 +84,17 @@ class _CartItemState extends State<CartItem> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: IconButton(
-                          onPressed: widget.onminus,
-                          icon: Icon(Icons.remove, size: 15, color: Colors.red),
+                          onPressed: minus,
+                          icon: const Icon(
+                            Icons.remove,
+                            size: 15,
+                            color: Colors.red,
+                          ),
                         ),
                       ),
-                      Gap(40),
-                      Text("1"),
-                      Gap(40),
+                      const Gap(40),
+                      Text("$count"),
+                      const Gap(40),
                       Container(
                         height: 35,
                         width: 35,
@@ -75,24 +103,30 @@ class _CartItemState extends State<CartItem> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: IconButton(
-                          onPressed: widget.onAdd,
-                          icon: Icon(Icons.add, size: 15, color: Colors.white),
+                          onPressed: add,
+                          icon: const Icon(
+                            Icons.add,
+                            size: 15,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
-                Gap(10),
+                const Gap(10),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    minimumSize: Size(100, 40),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.green),
+                    minimumSize: MaterialStateProperty.all(const Size(100, 40)),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
                     ),
                   ),
-                  onPressed: () {},
-                  child: Text(
+                  onPressed: remove,
+                  child: const Text(
                     "Remove",
                     style: TextStyle(fontSize: 16, color: Colors.white),
                   ),

@@ -38,7 +38,7 @@ class _RootState extends State<Root> {
           color: AppColors.primary,
           borderRadius: BorderRadius.circular(7),
         ),
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(5),
 
         child: BottomNavigationBar(
           backgroundColor: Colors.transparent,
