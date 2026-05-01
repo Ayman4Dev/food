@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food/features/auth/views/signup.dart';
+import 'package:food/root.dart';
 
 import 'package:gap/gap.dart';
 
@@ -18,7 +19,7 @@ class LoginView extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        backgroundColor: AppColors.primary,
+        backgroundColor: const Color(0xFF3D8D2F),
         body: SingleChildScrollView(
           child: Center(
             child: Padding(
@@ -66,7 +67,10 @@ class LoginView extends StatelessWidget {
                       ),
                       onPressed: () {
                         if (formkay.currentState!.validate()) {
-                          print("snw");
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => Root()),
+                          );
                         }
                       },
                       child: const Text(
@@ -79,6 +83,9 @@ class LoginView extends StatelessWidget {
                     ),
                     Gap(10),
                     TextButton(
+                      style: TextButton.styleFrom(
+                        foregroundColor: const Color(0xFFFFF3C4),
+                      ),
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -86,9 +93,9 @@ class LoginView extends StatelessWidget {
                         );
                       },
                       child: Text(
-                        "Not Have account..?\n Signup Now..!",
+                        "Not Have account..?\n \n Sign Up ",
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.blue),
+                        style: TextStyle(fontWeight: FontWeight.w600),
                       ),
                     ),
                   ],

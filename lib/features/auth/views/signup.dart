@@ -19,11 +19,11 @@ class Signup extends StatelessWidget {
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
-          backgroundColor: AppColors.primary,
-          appBar: AppBar(backgroundColor: AppColors.primary),
+          backgroundColor: const Color(0xFF3D8D2F),
+          appBar: AppBar(backgroundColor: const Color(0xFF3D8D2F)),
 
           body: Padding(
-            padding: EdgeInsetsGeometry.symmetric(horizontal: 50),
+            padding: const EdgeInsets.symmetric(horizontal: 50),
             child: SingleChildScrollView(
               child: Column(
                 children: [

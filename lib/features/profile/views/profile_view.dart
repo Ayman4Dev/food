@@ -21,7 +21,7 @@ class _ProfileViewState extends State<ProfileView> {
     cardType: 'VISA',
     cardAlias: 'Debit card',
     cardNumberMask: '4527 **** **** 2015',
-    avatarAsset: 'assets/test/details.png',
+    avatarAsset: 'assets/test/me.jpg',
   );
 
   late ProfileDataModel _currentProfileData;
@@ -160,10 +160,7 @@ class _ProfileViewState extends State<ProfileView> {
 }
 
 class _EditProfileSheet extends StatefulWidget {
-  const _EditProfileSheet({
-    required this.initialData,
-    required this.onSave,
-  });
+  const _EditProfileSheet({required this.initialData, required this.onSave});
 
   final ProfileDataModel initialData;
   final ValueChanged<ProfileDataModel> onSave;
@@ -185,7 +182,9 @@ class _EditProfileSheetState extends State<_EditProfileSheet> {
   void initState() {
     _nameController = TextEditingController(text: widget.initialData.name);
     _emailController = TextEditingController(text: widget.initialData.email);
-    _addressController = TextEditingController(text: widget.initialData.address);
+    _addressController = TextEditingController(
+      text: widget.initialData.address,
+    );
     _passwordController = TextEditingController();
     super.initState();
   }
@@ -228,7 +227,9 @@ class _EditProfileSheetState extends State<_EditProfileSheet> {
     return AnimatedPadding(
       duration: const Duration(milliseconds: 180),
       curve: Curves.easeOut,
-      padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
       child: SafeArea(
         top: false,
         child: SingleChildScrollView(

@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Food APP',
 
-      home: Root(),
+      home: const Splashview(),
     );
   }
 }
