@@ -19,6 +19,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   gap: ^3.0.1
   flutter_svg: ^2.2.3
+  dio: ^5.9.2
+  shared_preferences: ^2.5.5
 
 dev_dependencies:
   flutter_test:
